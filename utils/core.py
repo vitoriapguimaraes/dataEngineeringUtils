@@ -1,7 +1,9 @@
 import pandas as pd
+import sqlite3
 
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
+
 import re
 
 
@@ -169,3 +171,63 @@ def create_star_schema(df):
         "dim_produto": dim_produto,
         "fato_vendas": fato,
     }
+
+
+def run_food_production_etl(df, db_path):
+    """Executa o pipeline de dados de produção de alimentos."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    try:
+        # Schema
+        cursor.execute("DROP TABLE IF EXISTS producao")
+        cursor.execute(
+            """CREATE TABLE producao (
+                        produto TEXT,
+                        quantidade INTEGER,
+                        preco_medio REAL,
+                        receita_total INTEGER,
+                        margem_lucro REAL
+                    )"""
+        )
+
+        processed_count = 0
+        rows_dropped = 0
+
+        c_prod = "produto"
+        c_qty = "quantidade_produzida_kgs"
+        c_price = "valor_venda_medio"
+        c_rev = "receita_total"
+
+        for index, row in df.iterrows():
+            try:
+                qtd = int(row[c_qty])
+            except ValueError:
+                continue
+
+            if qtd > 10:
+                receita_raw = str(row[c_rev])
+                try:
+                    receita_clean = int(round(float(receita_raw.replace(".", "")), 0))
+                except (ValueError, AttributeError):
+                    receita_clean = 0
+
+                try:
+                    preco = float(row[c_price])
+                    margem = round((receita_clean / qtd) - preco, 2)
+                except (ValueError, ZeroDivisionError, TypeError):
+                    margem = 0.0
+
+                cursor.execute(
+                    "INSERT INTO producao (produto, quantidade, preco_medio, receita_total, margem_lucro) VALUES (?, ?, ?, ?, ?)",
+                    (str(row[c_prod]), qtd, preco, receita_clean, margem),
+                )
+                processed_count += 1
+            else:
+                rows_dropped += 1
+
+        conn.commit()
+        return processed_count, rows_dropped
+
+    finally:
+        conn.close()
