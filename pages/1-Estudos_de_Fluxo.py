@@ -7,12 +7,12 @@ from utils.load_file import load_data
 from utils.core import run_food_production_etl
 from utils.paths import DATA_DIR
 
-st.set_page_config(page_title="Estudos de Fluxo", page_icon="⚙️", layout="wide")
+st.set_page_config(page_title="Estudos de Fluxo", page_icon="⛓️", layout="wide")
 
 setup_sidebar()
 add_back_to_top()
 
-st.title("Estudos de Fluxo")
+st.title("⛓️ Estudos de Fluxo")
 
 # --- CONFIGURAÇÃO ---
 DB_FILE = str(DATA_DIR / "estudos_de_fluxos.db")

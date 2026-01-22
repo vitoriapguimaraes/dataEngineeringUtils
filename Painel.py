@@ -18,7 +18,14 @@ st.info(
 st.page_link(
     "pages/1-Estudos_de_Fluxo.py",
     label="Estudos de Fluxo",
-    icon="⚙️",
+    icon="⛓️",
+    use_container_width=True,
+)
+
+st.page_link(
+    "pages/2-Projeto_Super_Store.py",
+    label="Projeto Super Store",
+    icon="🛒",
     use_container_width=True,
 )
 
