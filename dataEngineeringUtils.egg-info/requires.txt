@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+beautifulsoup4
+python-dotenv
+pandas-gbq
+google-cloud-bigquery
+matplotlib
+plotly
+graphviz

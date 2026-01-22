@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: dataEngineeringUtils
+Version: 0.1.0
+License-File: LICENSE
+Requires-Dist: streamlit
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: beautifulsoup4
+Requires-Dist: python-dotenv
+Requires-Dist: pandas-gbq
+Requires-Dist: google-cloud-bigquery
+Requires-Dist: matplotlib
+Requires-Dist: plotly
+Requires-Dist: graphviz
+Dynamic: license-file
+Dynamic: requires-dist
