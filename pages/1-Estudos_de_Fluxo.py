@@ -27,12 +27,12 @@ with tabs[0]:
     st.markdown(
         """
         Você é um Engenheiro de Dados em uma indústria de alimentos. O sistema legado de vendas exporta relatórios diários em CSV, mas com dois problemas crônicos:
-        
         1.  **Lixo nos Dados**: Registros com quantidades insignificantes (<= 10 kg) que não deveriam estar lá.
         2.  **Formatação Errada**: O campo de receita vem com pontos (`.`) separando milhares, o que quebra a conversão numérica em alguns sistemas.
-        
-        **Objetivo**: Construir um pipeline que limpe esses dados automaticamente e calcule a margem de lucro real.
         """
+    )
+    st.markdown(
+        "**Objetivo**: Construir um pipeline que limpe esses dados automaticamente e calcule a margem de lucro real."
     )
 
     st.subheader("Análise da Qualidade dos Dados (Raw)")
