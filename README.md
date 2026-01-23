@@ -3,6 +3,8 @@
 > **A espinha dorsal dos dados.**  
 > Um portfólio prático de Engenharia de Dados, focado na construção de pipelines robustos, modelagem dimensional e arquitetura em nuvem.
 
+![Demonstração do Sistema](https://github.com/vitoriapguimaraes/dataEngineeringUtils/blob/main/demo/navigation.gif)
+
 ## Objetivo
 
 Centralizar demonstrativos técnicos de **Engenharia de Dados**, provando competência na transformação de dados brutos e desestruturados em ativos analíticos confiáveis (Analytical Ready).
