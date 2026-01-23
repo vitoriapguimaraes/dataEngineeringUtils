@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+beautifulsoup4
+google-cloud-bigquery
+pandas-gbq
+db-dtypes
+python-dotenv
+lxml
+requests
