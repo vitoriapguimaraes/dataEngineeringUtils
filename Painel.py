@@ -31,12 +31,32 @@ st.page_link(
 
 st.markdown("---")
 
-st.subheader("Ferramentas Utilizadas")
-st.info("Python | Pandas |....")
-
-st.subheader("Competências Desenvolvidas")
-st.markdown(
-    """
-    - ...
-    """
+st.subheader("Ferramentas & Tecnologias")
+st.code(
+    "Python 3.10+ | Google BigQuery | SQL | Pandas | SQLite | Streamlit | BeautifulSoup4"
 )
+
+st.subheader("Competências Demonstradas")
+c1, c2 = st.columns(2)
+
+with c1:
+    st.markdown(
+        """
+        **Engenharia de Dados (Core)**
+        -   Construção de Pipelines ETL e ELT Robustos.
+        -   Modelagem Dimensional (Star Schema) para BI.
+        -   Ingestão de Dados Híbrida (Arquivos Locais + Web).
+        -   Arquitetura de Dados em Nuvem (GCP).
+        """
+    )
+
+with c2:
+    st.markdown(
+        """
+        **Qualidade & Governança**
+        -   Data Wrangling e Limpeza de Dados Legados.
+        -   Tratamento de Anomalias e Outliers.
+        -   Padronização e *Schema Enforcement*.
+        -   Automação de Fluxos de Dados.
+        """
+    )
